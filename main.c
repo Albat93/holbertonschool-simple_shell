@@ -9,34 +9,34 @@
  */
 int main(int argc, char **argv)
 {
-    char *input = NULL;
-    size_t input_size = 0;
-    ssize_t read_size;
+	char *input = NULL;
+	size_t input_size = 0;
+	ssize_t read_size;
 
-    (void)argc;
-    (void)argv;
+	(void)argc;
+	(void)argv;
 
-    while (1)
-    {
-        if (isatty(STDIN_FILENO))
-            write(STDOUT_FILENO, "$ ", 2);
+	while (1)
+	{
+		if (isatty(STDIN_FILENO))
+			write(STDOUT_FILENO, "$ ", 2);
 
-        read_size = getline(&input, &input_size, stdin);
-        if (read_size == -1)
-            break;
+		read_size = getline(&input, &input_size, stdin);
+		if (read_size == -1)
+			break;
 
-        if (input[read_size - 1] == '\n')
-            input[read_size - 1] = '\0';
+		if (input[read_size - 1] == '\n')
+			input[read_size - 1] = '\0';
 
-        if (strcmp("exit", input) == 0)
-        {
-            free(input);
-            exit(0);
-        }
+		if (strcmp("exit", input) == 0)
+		{
+			free(input);
+			exit(0);
+		}
 
-        execute_command(input);
-    }
+		execute_command(input);
+	}
 
-    free(input);
-    return (0);
+	free(input);
+	return (0);
 }
