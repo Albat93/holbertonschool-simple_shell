@@ -81,3 +81,4 @@ Designed to run on `Ubuntu 20.04 LTS`, the simple_shell can be installed as foll
 **Step 4: Creating the Child Process** When a command is entered, the shell creates a new child process using the `fork()` system call. The child process will execute the command using the system call `execvp()`, while the parent process will wait for the child to complete. The associated commands allow the processing of several basic commands such as `ls', 'cat', 'echo', and their options
 
 ## flowchart
+![flowchart simple shell](https://github.com/user-attachments/assets/f32e9885-9931-4aa1-bfba-9430f2957376)
