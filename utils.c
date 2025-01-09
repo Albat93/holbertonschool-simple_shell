@@ -60,18 +60,13 @@ void free_args(char **args)
  */
 char *get_command_path(char *command, char **env)
 {
-	char *path = NULL, *path_copy, *dir, *full_path;
+	char *path = NULL, *dir, *full_path, *path_copy;
 	struct stat st;
 	int i = 0;
 
-	if (strchr(command, '/') != NULL)
-	{
-		if (stat(command, &st) == 0)
-			return (strdup(command));
-		return (NULL);
-	}
+	if (strchr(command, '/') && stat(command, &st) == 0)
+		return (strdup(command));
 
-	/* Find PATH in environment variables */
 	while (env[i])
 	{
 		if (strncmp(env[i], "PATH=", 5) == 0)
@@ -93,10 +88,7 @@ char *get_command_path(char *command, char **env)
 	{
 		full_path = malloc(strlen(dir) + strlen(command) + 2);
 		if (!full_path)
-		{
-			free(path_copy);
-			return (NULL);
-		}
+			break;
 		sprintf(full_path, "%s/%s", dir, command);
 		if (stat(full_path, &st) == 0)
 		{
@@ -106,7 +98,6 @@ char *get_command_path(char *command, char **env)
 		free(full_path);
 		dir = strtok(NULL, ":");
 	}
-
 	free(path_copy);
 	return (NULL);
 }
