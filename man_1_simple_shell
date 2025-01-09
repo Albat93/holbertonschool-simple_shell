@@ -1,0 +1,127 @@
+.TH "Simple Shell Project Manual"
+
+.SH NAME
+simple shell \- A simple shell implementation
+
+.SH SYNOPSIS
+.B Simple Shell
+
+.SH DESCRIPTION
+.B Simple shell
+is a custom implementation of a Unix shell. It allows users to execute commands interactively or process commands from a file in non-interactive mode.
+It supports basic shell functionality, including command parsing, environment handling, and executing programs.
+
+.SH COMPILATION
+.B Use this command to compile the program : gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+.SH USAGE
+.TP
+.B Interactive Mode
+Run the shell and type commands one at a time. Each command is executed immediately:
+.EXAMPLE
+$ ./hsh
+$ ls -l
+$ pwd
+$ exit
+.TP
+.B Non-Interactive Mode
+Provide a script or a list of commands via a file or pipe:
+.EXAMPLE
+$ echo "ls -l" | ./hsh
+
+.SH OPTIONS
+.B simple shell
+does not currently accept any options or flags.
+
+.SH BUILT-IN COMMANDS
+The following built-in commands are supported:
+
+.TP
+.B exit
+Exit the shell. Optionally, provide an exit status:
+.EXAMPLE
+$ exit 0
+.TP
+.B env
+Print the current environment variables:
+.EXAMPLE
+$ env
+.TP
+.B cd
+Change the current directory (not implemented in this version).
+
+.SH EXTERNAL COMMANDS
+If the command is not a built-in, the shell attempts to locate and execute it using the `PATH` environment variable.
+Commands can be executed with their absolute path or relative to the current directory:
+.EXAMPLE
+$ /bin/ls
+
+.SH ENVIRONMENT VARIABLES
+.B simple shell
+relies on the following environment variables:
+
+.TP
+.B PATH
+Specifies the search paths for executable files.
+If a command is not in the directories specified by `PATH`, it will not be found unless given an absolute path.
+.EXAMPLE
+$ echo $PATH
+
+.TP
+.B HOME
+Specifies the home directory for the current user.
+
+.TP
+.B SHELL
+Identifies the current shell in use. This variable is not actively modified by `hsh`.
+
+.SH EXIT STATUS
+.B hsh
+returns the following exit codes:
+
+.TP
+.B 0
+Successful execution or when the `exit` command is used without a status.
+.TP
+.B 1
+General errors, including failure to locate or execute a command.
+.TP
+.B 126
+Command found but not executable.
+.TP
+.B 127
+Command not found.
+
+.SH EXAMPLES
+.TP
+.B Interactive Mode:
+Run the shell interactively to execute commands:
+.EXAMPLE
+$ ./hsh
+$ ls
+$ echo "Hello, world!"
+$ exit
+
+.TP
+.B Non-Interactive Mode:
+Execute commands from a file:
+.EXAMPLE
+$ echo -e "ls -l\npwd\nexit" > script.sh
+$ ./hsh script.sh
+
+.TP
+.B Piped Commands:
+Process commands from a pipe:
+.EXAMPLE
+$ echo "ls -la" | ./hsh
+
+.SH LIMITATIONS
+.B hsh
+currently supports basic shell functionalities. Advanced features like piping (`|`), redirection (`>`), and background processes (`&`) are not implemented.
+
+.SH BUGS
+No unknown bugs. If you encounter any, please report to <9929@holbertonstudents.com>.
+
+.SH AUTHOR
+SOILEUX Blandine <1066@holbertonstudents.com>
+BATTISTONI Alexis <9929@holbertonstudents.com>
