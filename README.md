@@ -70,7 +70,7 @@ Designed to run on `Ubuntu 20.04 LTS`, the simple_shell can be installed as foll
 
 **Step 1: Interactive Mode** Before launching our program, we have the possibility to interact with the interactive mode or not. If the interactive mode is launched, we move on to step 2. The non-interactive mode allows command execution without direct access to the shell.
 
-![image](https://github.com/user-attachments/assets/3b6a6339-e4cd-4ef2-9829-84d41be1f56e)
+file:///C:/Users/Lucie/Desktop/flowchart%20simple%20shell.drawio.html
 
 
 
