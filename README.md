@@ -21,7 +21,7 @@ stages:
 
 
 
-* [![langage.C]][c.url]
+* [![language.C]][c.url]
 
 
 
@@ -82,3 +82,6 @@ Designed to run on `Ubuntu 20.04 LTS`, the simple_shell can be installed as foll
 
 ## flowchart
 ![flowchart simple shell](https://github.com/user-attachments/assets/f32e9885-9931-4aa1-bfba-9430f2957376)
+
+## Special thanks
+We strongly thank our SWE Axel. Without whom this project would not have seen the light of day
