@@ -21,7 +21,7 @@ stages:
 
 
 
-* [![language.C]][c.url]
+* C Language
 
 
 
