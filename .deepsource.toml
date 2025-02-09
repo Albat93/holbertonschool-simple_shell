@@ -1,0 +1,16 @@
+version = 1
+
+[[analyzers]]
+name = "cxx"
+
+[[analyzers]]
+name = "go"
+
+  [analyzers.meta]
+  import_root = "github.com/Albat93/holbertonschool-simple_shell"
+
+[[analyzers]]
+name = "python"
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
